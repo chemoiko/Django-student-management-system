@@ -5,12 +5,11 @@ Feel free to make changes based on your requirements.
 [Front-end Template](http://adminlte.io "Admin LTE.io")
 
 
-[Project Demo on YouTube](https://www.youtube.com/watch?v=kArCR96m7uo "Django Student Management System Demo")
+[Project Tutorial on YouTube I followed](https://www.youtube.com/watch?v=kArCR96m7uo "Django Student Management System Demo")
 
 And if you like this project, then ADD a STAR ⭐️  to this project 👆
 ## Deployed to
-https://smswithdjango.herokuapp.com/
-
+https://django-student-management-system-uwvs.onrender.com/
 
 ## Features of this Project
 
@@ -205,9 +204,8 @@ Password: student
 
 
 ## For Sponsor or Projects Enquiry
-1. Email - jobowonubi@gmail.com
-2. LinkedIn - [jobic10](https://www.linkedin.com/in/jobic10 "Owonubi Job Sunday on LinkedIn")
-2. Twitter - [jobic10](https://www.twitter.com/jobic10 "Owonubi Job Sunday on Twitter")
+1. Email - elijahmurket@gmail.com
+2. LinkedIn - [jobic10](https://www.linkedin.com/in/elijah-murket")
 
 
 
