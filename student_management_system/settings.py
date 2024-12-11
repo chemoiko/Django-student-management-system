@@ -47,21 +47,28 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': os.environ.get('DB_ENGINE'),
-        'NAME': os.environ.get('DB_NAME'),
-        # 'USER': os.environ.get('DB_USER'),
-        # 'PASSWORD': os.environ.get('DB_PASSWORD'),
-        # 'HOST': os.environ.get('DB_HOST'),
-        # 'PORT': os.environ.get('DB_PORT'),
+if ENVIRONMENT == 'development':
+    DATABASES = {
+        'default': {
+            'ENGINE': os.environ.get('DB_ENGINE'),
+            'NAME': os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
+            'HOST': os.environ.get('DB_HOST'),
+            'PORT': os.environ.get('DB_PORT'),
+        }
     }
-}
-
-
-db_url = os.environ.get("DB_URL")
-DATABASES["default"] = dj_database_url.parse(db_url, conn_max_age=600)
-print("Database Configuration:", DATABASES['default'])
+elif ENVIRONMENT == 'production':
+    db_url = os.environ.get("DB_URL")
+    if db_url:  # Ensure the DB_URL is defined in the environment
+        DATABASES = {
+            "default": dj_database_url.parse(db_url, conn_max_age=600)
+        }
+    else:
+        raise ValueError("DB_URL environment variable not set for production!")
+else:
+    raise ValueError(
+        "Invalid ENVIRONMENT variable. Must be 'development' or 'production'.")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
