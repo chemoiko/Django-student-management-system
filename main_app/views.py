@@ -27,10 +27,10 @@ def doLogin(request, **kwargs):
     if request.method != 'POST':
         return HttpResponse("<h4>Denied</h4>")
     else:
-        #Google recaptcha
+        # Google recaptcha
         captcha_token = request.POST.get('g-recaptcha-response')
         captcha_url = "https://www.google.com/recaptcha/api/siteverify"
-        captcha_key = "6LfswtgZAAAAABX9gbLqe-d97qE2g1JP8oUYritJ"
+        captcha_key = "6LcRIpgqAAAAAL5WVcV6szUJMF3b1n8ycSIUaEuV"
         data = {
             'secret': captcha_key,
             'response': captcha_token
@@ -45,9 +45,10 @@ def doLogin(request, **kwargs):
         except:
             messages.error(request, 'Captcha could not be verified. Try Again')
             return redirect('/')
-        
-        #Authenticate
-        user = EmailBackend.authenticate(request, username=request.POST.get('email'), password=request.POST.get('password'))
+
+        # Authenticate
+        user = EmailBackend.authenticate(request, username=request.POST.get(
+            'email'), password=request.POST.get('password'))
         if user != None:
             login(request, user)
             if user.user_type == '1':
@@ -59,7 +60,6 @@ def doLogin(request, **kwargs):
         else:
             messages.error(request, "Invalid details")
             return redirect("/")
-
 
 
 def logout_user(request):
@@ -75,14 +75,15 @@ def get_attendance(request):
     try:
         subject = get_object_or_404(Subject, id=subject_id)
         session = get_object_or_404(Session, id=session_id)
-        attendance = Attendance.objects.filter(subject=subject, session=session)
+        attendance = Attendance.objects.filter(
+            subject=subject, session=session)
         attendance_list = []
         for attd in attendance:
             data = {
-                    "id": attd.id,
-                    "attendance_date": str(attd.date),
-                    "session": attd.session.id
-                    }
+                "id": attd.id,
+                "attendance_date": str(attd.date),
+                "session": attd.session.id
+            }
             attendance_list.append(data)
         return JsonResponse(json.dumps(attendance_list), safe=False)
     except Exception as e:
