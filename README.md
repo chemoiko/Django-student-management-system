@@ -11,6 +11,10 @@ And if you like this project, then ADD a STAR ⭐️  to this project 👆
 ## Deployed to
 https://django-student-management-system-uwvs.onrender.com/
 
+## For Admin users
+Email: elijahmurket@gmail.com
+Password: incredible
+
 ## Features of this Project
 
 ### A. Admin Users Can
@@ -190,8 +194,8 @@ Then Add Email and Password
 **or Use Default Credentials**
 
 *For HOD /SuperAdmin*
-Email: admin@admin.com
-Password: admin
+Email: elijahmurket@gmail.com
+Password: incredible
 
 *For Staff*
 Email: staff@staff.com
