@@ -12,8 +12,8 @@ And if you like this project, then ADD a STAR ⭐️  to this project 👆
 https://django-student-management-system-uwvs.onrender.com/
 
 ## For Admin users
-Email: elijahmurket@gmail.com
-Password: incredible
+Email: admin@admin.com
+Password: admin
 
 ## Features of this Project
 
