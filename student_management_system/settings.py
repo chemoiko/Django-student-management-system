@@ -50,12 +50,9 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
 if ENVIRONMENT == 'development':
     DATABASES = {
         'default': {
-            'ENGINE': os.environ.get('DB_ENGINE'),
-            'NAME': os.environ.get('DB_NAME'),
-            'USER': os.environ.get('DB_USER'),
-            'PASSWORD': os.environ.get('DB_PASSWORD'),
-            'HOST': os.environ.get('DB_HOST'),
-            'PORT': os.environ.get('DB_PORT'),
+            'ENGINE': 'django.db.backends.sqlite3',
+            # This creates the database in your project directory
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 elif ENVIRONMENT == 'production':
@@ -69,6 +66,7 @@ elif ENVIRONMENT == 'production':
 else:
     raise ValueError(
         "Invalid ENVIRONMENT variable. Must be 'development' or 'production'.")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
